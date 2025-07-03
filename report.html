@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Report Symptoms | OutbreakWatch</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#007acc" />
+  <link rel="apple-touch-icon" href="images/aaa.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #b3ecff);
+      color: #1a1a1a;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: rgba(0, 102, 153, 0.95);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.2rem;
+      max-width: 1200px;
+      margin: auto;
+      color: #ffffff;
+      flex-wrap: wrap;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: rgba(0, 102, 153, 0.95);
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0 0 10px 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: #ffffff;
+      }
+    }
+
+    .form-wrapper {
+      margin-top: 100px;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 1200px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #003366;
+      padding: 1rem 2vw;
+      background-color: #e6f7ff;
+      border-top: 1px solid #99ddff;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">OutbreakWatch</div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="report.html">Report Symptoms</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="analytics.html">Data Dashboard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Google Form Embed -->
+  <div class="form-wrapper">
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeOXgxH2QgH6Crx_1FP5gE7Kx5URbAw5vHDAXytpyy1bAx2Zg/viewform?embedded=true"
+      allowfullscreen>
+      Loading…
+    </iframe>
+  </div>
+
+  <footer>
+    <p>© 2025 OutbreakWatch. Empowering Communities for Early Health Response.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("navLinks");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
