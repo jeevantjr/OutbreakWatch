@@ -1,0 +1,21 @@
+{
+  "name": "RDHS Trincomalee Stats",
+  "short_name": "RDHS Stats",
+  "start_url": "/rdhs-stats-pwa/",
+  "scope": "/rdhs-stats-pwa/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004080",
+  "icons": [
+    {
+      "src": "/rdhs-stats-pwa/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/rdhs-stats-pwa/images/icon-512-from-building.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
