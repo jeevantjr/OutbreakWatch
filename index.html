@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <link rel="manifest" href="/rdhs-stats-pwa/manifest.json" />
-  <meta name="theme-color" content="#004080" />
-  <link rel="apple-touch-icon" href="images/icon-192.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RDHS Trincomalee</title>
+  <title>OutbreakWatch – Community Health Alert</title>
+  <meta name="theme-color" content="#004080" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="images/icon-192.png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    #installBtn:hover {
-      background-color: #0059b3;
-      transform: translateY(-2px);
-    }
-
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: url("images/icon-512-from-building.png") no-repeat center center fixed;
+      background: url("images/icon-512.png") no-repeat center center fixed;
       background-size: cover;
       color: #ffffff;
     }
@@ -109,7 +103,6 @@
       margin-bottom: 1rem;
       color: #ffffff;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-      animation: fadeInDown 1s ease-out;
     }
 
     .logo {
@@ -131,24 +124,17 @@
       white-space: nowrap;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       color: #ffffff;
-      position: relative;
     }
 
     .marquee span {
       display: inline-block;
       padding-left: 100%;
       animation: scroll 45s linear infinite;
-      color: white;
     }
 
     @keyframes scroll {
       from { transform: translateX(0%); }
       to { transform: translateX(-100%); }
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     footer {
@@ -159,191 +145,118 @@
       padding: 1rem 5vw;
       background-color: rgba(0, 0, 51, 0.85);
       border-radius: 12px;
-      text-shadow: 1px 1px 3px #000;
-      box-sizing: border-box;
-      width: 100%;
-      max-width: 100%;
-      word-wrap: break-word;
-    }
-
-    @media (max-width: 600px) {
-      footer {
-        font-size: 0.95rem;
-        padding: 1.2rem 4vw;
-      }
     }
   </style>
 </head>
-<body>
 
-  <!-- Navigation Bar -->
+<body>
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-      <div class="nav-logo">RDHS Trincomalee</div>
+      <div class="nav-logo">OutbreakWatch</div>
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
-        <a href="AboutUs.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="statistics/index.html">Regional Statistics 2024</a>
-        <a href="MonthlyStatistics/index.html">Monthly Statistics 2025</a>
-        <a href="CardDetails/index.html">Cardre Details</a>
-        <a href="institutions/index.html">Health Services</a>
-        <a href="healtheducation/index.html">Health Education</a>
-          <a href="NoticeBoard.html">Notice Board</a>
-          <a href="hams.html">HAMS</a>
-      
+        <a href="about.html">About</a>
+        <a href="report.html">Report Symptoms</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="analytics.html">Data Dashboard</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Main Content -->
   <div class="overlay">
-    <div class="app-heading">Regional Director of Health Services Trincomalee</div>
-
-    <img src="images/icon-192.png" alt="RDHS Logo" class="logo" />
+    <div class="app-heading">OutbreakWatch: Community Health Early Warning</div>
+    <img src="images/icon-192.png" alt="App Logo" class="logo" />
 
     <div class="marquee">
       <span>
-        ත්‍රිකුණාමලය ප්‍රාදේශීය සෞඛ්‍ය සේවා අධ්‍යක්ෂ කාර්යාලයේ නිල වෙබ් අඩවියට සාදරයෙන් පිළිගනිමු |
-        பிராந்திய சுகாதார சேவைகள் பணிப்பாளர் பணிமனை, திருகோணமலையின் உத்தியோகபூர்வ இணையதளத்திற்கு வரவேற்கிறோம் |
-        Welcome to the Official Website of the Regional Director of Health Services – Trincomalee
+        Welcome to OutbreakWatch – a community-powered, low-resource system to detect symptoms, track patterns, and alert early warning signs of local health outbreaks.
       </span>
     </div>
 
-    <!-- Install App Button -->
-    <div id="installContainer" style="text-align: center; margin-top: 2rem;">
-      <button id="installBtn" style="
-        background-color: #004080;
-        color: #ffffff;
-        padding: 12px 24px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      ">
-        📲 Install RDHS Stats App
+    <!-- Install Button -->
+    <div id="installContainer" style="margin-top: 2rem;">
+      <button id="installBtn" style="background-color: #004080; color: #fff; padding: 12px 24px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;">
+        📲 Install OutbreakWatch App
       </button>
     </div>
 
     <!-- Refresh Prompt -->
-    <div id="refreshPrompt" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-      <button onclick="location.reload()" style="
-        background-color: #ffcc00;
-        color: #000;
-        font-weight: bold;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 6px;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-        cursor: pointer;
-      ">
+    <div id="refreshPrompt" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+      <button onclick="location.reload()" style="background-color: #ffcc00; color: #000; font-weight: bold; padding: 10px 20px; border: none; border-radius: 6px;">
         🔄 New Update Available - Refresh
       </button>
     </div>
 
     <!-- Footer -->
     <footer>
-      <p style="font-size: 16px; font-weight: 600; margin: 0 0 10px;">
-        © 2025 All Rights Reserved
-      </p>
-      <p style="font-size: 15px; margin: 0 0 10px; line-height: 1.6;">
-        <strong>Health Information Management Unit</strong><br>
-        Regional Director of Health Services, 120 Court Rd, Trincomalee
-      </p>
-      <p style="font-size: 15px; margin: 0; line-height: 1.6;">
-        📞 <a href="tel:+94262222263" style="color: #90caf9; text-decoration: none;">026 2222263</a> &nbsp;|&nbsp;
-        📠 Fax: <span style="color: #bbdefb;">026 2220854</span><br>
-        ✉️ <a href="mailto:trincomoinfo@gmail.com" style="color: #90caf9; text-decoration: none;">trincomoinfo@gmail.com</a>
-      </p>
+      <p>© 2025 OutbreakWatch Project</p>
+      <p>Designed for low-resource communities to enhance outbreak surveillance.</p>
     </footer>
   </div>
-
 
   <!-- Scripts -->
   <script>
     function toggleMenu() {
-      var menu = document.getElementById("navLinks");
+      const menu = document.getElementById("navLinks");
       menu.classList.toggle("show");
     }
   </script>
 
-  <!-- Install App Logic -->
-<!-- Install App Logic -->
-<script>
-  function isIOS() {
-    return /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
-  }
-
-  let deferredPrompt;
-
-  window.addEventListener('load', () => {
-    const container = document.getElementById('installContainer');
-
-    if (isIOS()) {
-      container.innerHTML = `
-        <div style="background-color: rgba(255,255,255,0.15); color: #fff; padding: 1.2rem; border-radius: 12px; max-width: 380px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.4); font-size: 1rem; line-height: 1.6;">
-          📲 <strong>To install this app on your iPhone</strong>, open it in <strong>Safari</strong>, tap the <strong>Share</strong> icon, then choose <strong>"Add to Home Screen"</strong>.
-        </div>
-      `;
+  <!-- Install Logic -->
+  <script>
+    function isIOS() {
+      return /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
     }
-  });
 
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
+    let deferredPrompt;
 
-    const container = document.getElementById('installContainer');
-    container.style.display = 'block';
+    window.addEventListener('load', () => {
+      const container = document.getElementById('installContainer');
+      if (isIOS()) {
+        container.innerHTML = `
+          <div style="background-color: rgba(255,255,255,0.15); color: #fff; padding: 1rem; border-radius: 12px;">
+            📲 <strong>iPhone users:</strong> Tap Share in Safari, then “Add to Home Screen”.
+          </div>
+        `;
+      }
+    });
 
-    const button = document.getElementById('installBtn');
-    button.addEventListener('click', () => {
-      container.style.display = 'none';
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('✅ App installed');
-        } else {
-          console.log('❌ User dismissed the install prompt');
-        }
-        deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('installBtn').addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          deferredPrompt = null;
+        });
       });
     });
-  });
 
-  window.addEventListener('appinstalled', () => {
-    console.log('📲 RDHS Stats App was successfully installed');
-    document.getElementById('installContainer').style.display = 'none';
-  });
-</script>
-
+    window.addEventListener('appinstalled', () => {
+      document.getElementById('installContainer').style.display = 'none';
+    });
+  </script>
 
   <!-- Service Worker Registration -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/rdhs-stats-pwa/service-worker.js')
-        .then(registration => {
-          console.log('✅ Service worker registered.', registration);
-
-          registration.onupdatefound = () => {
-            const installingWorker = registration.installing;
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => {
+          reg.onupdatefound = () => {
+            const installingWorker = reg.installing;
             installingWorker.onstatechange = () => {
-              if (installingWorker.state === 'installed') {
-                if (navigator.serviceWorker.controller) {
-                  document.getElementById('refreshPrompt').style.display = 'block';
-                }
+              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                document.getElementById('refreshPrompt').style.display = 'block';
               }
             };
           };
         })
-        .catch(error => {
-          console.error('❌ Service worker registration failed:', error);
-        });
+        .catch(error => console.error('❌ SW registration failed:', error));
     }
   </script>
 </body>
 </html>
-
