@@ -87,18 +87,39 @@
     }
 
     .form-wrapper {
-      margin-top: 100px;
-      padding: 2rem;
+      margin-top: 120px;
+      padding: 1rem 2rem 3rem;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 80vh;
+    }
+
+    .form-header {
+      max-width: 800px;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: #ffffffee;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    }
+
+    .form-header h1 {
+      color: #004d99;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
     }
 
     iframe {
       width: 100%;
       max-width: 800px;
-      height: 1200px;
+      height: 1300px;
       border: none;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -117,7 +138,6 @@
 </head>
 
 <body>
-  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">OutbreakWatch</div>
@@ -133,8 +153,16 @@
     </div>
   </nav>
 
-  <!-- Google Form Embed -->
   <div class="form-wrapper">
+    <div class="form-header">
+      <h1>📝 Report Symptoms</h1>
+      <p>
+        Help your community stay safe by reporting any symptoms you or your household members are experiencing.<br>
+        This information is <strong>confidential</strong> and used only for early detection and public health response.<br><br>
+        🔒 <em>Your identity will remain anonymous.</em> You may skip any questions you're uncomfortable with.
+      </p>
+    </div>
+
     <iframe 
       src="https://docs.google.com/forms/d/e/1FAIpQLSeOXgxH2QgH6Crx_1FP5gE7Kx5URbAw5vHDAXytpyy1bAx2Zg/viewform?embedded=true"
       allowfullscreen>
@@ -143,13 +171,12 @@
   </div>
 
   <footer>
-    <p>© 2025 OutbreakWatch. Empowering Communities for Early Health Response.</p>
+    <p>© 2025 OutbreakWatch. Community-Powered Health Monitoring.</p>
   </footer>
 
   <script>
     function toggleMenu() {
-      var menu = document.getElementById("navLinks");
-      menu.classList.toggle("show");
+      document.getElementById("navLinks").classList.toggle("show");
     }
   </script>
 </body>
