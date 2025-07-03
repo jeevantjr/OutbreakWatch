@@ -119,30 +119,17 @@
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     }
 
-    .marquee {
+    .info-card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 700px;
       font-size: 1.1rem;
-      font-weight: 500;
-      background: rgba(0, 153, 204, 0.2);
-      padding: 1rem;
-      border-radius: 10px;
-      overflow: hidden;
-      width: 100%;
-      max-width: 800px;
-      white-space: nowrap;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       color: #003366;
-      position: relative;
-    }
-
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll 45s linear infinite;
-    }
-
-    @keyframes scroll {
-      from { transform: translateX(0%); }
-      to { transform: translateX(-100%); }
+      line-height: 1.6;
+      text-align: center;
     }
 
     #installBtn:hover {
@@ -182,13 +169,13 @@
     <div class="app-title-main">OutbreakWatch</div>
     <div class="app-title-sub">Community Health Early Warning</div>
 
-  <img src="images/aaa.png" alt="OutbreakWatch Logo" class="logo" />
+    <img src="images/aaa.png" alt="OutbreakWatch Logo" class="logo" />
 
-
-    <div class="marquee">
-      <span>
-        Welcome to OutbreakWatch – a community-powered, low-resource system to detect symptoms, track patterns, and send early alerts of local health outbreaks.
-      </span>
+    <div class="info-card">
+      <p>
+        <strong>Welcome to OutbreakWatch</strong><br />
+        A community-powered, low-resource platform to <strong>report symptoms</strong>, <strong>track patterns</strong>, and send <strong>early alerts</strong> about potential health outbreaks in your area.
+      </p>
     </div>
 
     <!-- Install App Button -->
