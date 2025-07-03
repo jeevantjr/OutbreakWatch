@@ -12,13 +12,13 @@
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #007acc, #e0f7fa);
-      color: #1a1a1a;
+      background: linear-gradient(135deg, #ccefff, #ffffff);
+      color: #003355;
     }
 
     .navbar {
       width: 100%;
-      background-color: rgba(0, 102, 153, 0.95);
+      background-color: #007acc;
       position: fixed;
       top: 0;
       left: 0;
@@ -87,35 +87,32 @@
     }
 
     .overlay {
-      background-color: rgba(255, 255, 255, 0.8);
+      padding-top: 6rem;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 6rem 2rem 2rem;
     }
 
     .app-title-main {
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 900;
-      color: #004d99;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+      color: #004080;
+      margin-bottom: 0.3rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     .app-title-sub {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 500;
-      color: #003366;
+      color: #005f99;
       margin-bottom: 1.5rem;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .logo {
       max-width: 160px;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
       border-radius: 16px;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     }
@@ -129,6 +126,7 @@
       max-width: 900px;
       font-size: 1.1rem;
       line-height: 1.7;
+      color: #003355;
     }
 
     #installBtn:hover {
@@ -140,7 +138,7 @@
       text-align: center;
       font-size: 0.95rem;
       color: #003366;
-      margin-top: auto;
+      margin-top: 3rem;
       padding: 0.8rem 2vw;
       background-color: #e6f7ff;
       border-top: 1px solid #99ddff;
@@ -165,4 +163,121 @@
     </div>
   </nav>
 
-  <div class="ov
+  <div class="overlay">
+    <div class="app-title-main">OutbreakWatch</div>
+    <div class="app-title-sub">Community Health Early Warning</div>
+
+    <img src="images/aaa.png" alt="OutbreakWatch Logo" class="logo" />
+
+    <div class="info-card">
+      <p>
+        Welcome to <strong>OutbreakWatch</strong> — a community-based, mobile-first platform for tracking early signs of outbreaks based on local symptom reports. This system empowers frontline health workers and community members to detect patterns, visualize data, and respond before it's too late.
+      </p>
+    </div>
+
+    <!-- Install App Button -->
+    <div id="installContainer" style="text-align: center; margin-top: 2rem;">
+      <button id="installBtn" style="
+        background-color: #007acc;
+        color: #ffffff;
+        padding: 12px 24px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      ">
+        📲 Install OutbreakWatch App
+      </button>
+    </div>
+
+    <!-- Refresh Prompt -->
+    <div id="refreshPrompt" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+      <button onclick="location.reload()" style="
+        background-color: #ffcc00;
+        color: #000;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        cursor: pointer;
+      ">
+        🔄 New Update Available - Refresh
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 OutbreakWatch. Built for community resilience in public health.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("navLinks");
+      menu.classList.toggle("show");
+    }
+
+    function isIOS() {
+      return /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
+    }
+
+    let deferredPrompt;
+
+    window.addEventListener('load', () => {
+      const container = document.getElementById('installContainer');
+
+      if (isIOS()) {
+        container.innerHTML = `
+          <div style="background-color: rgba(255,255,255,0.2); color: #003366; padding: 1.2rem; border-radius: 12px; max-width: 380px; margin: auto; font-size: 1rem;">
+            📲 <strong>To install this app on your iPhone</strong>, open in Safari, tap the <strong>Share</strong> icon, then <strong>"Add to Home Screen"</strong>.
+          </div>
+        `;
+      }
+    });
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+
+      const container = document.getElementById('installContainer');
+      container.style.display = 'block';
+
+      const button = document.getElementById('installBtn');
+      button.addEventListener('click', () => {
+        container.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          deferredPrompt = null;
+        });
+      });
+    });
+
+    window.addEventListener('appinstalled', () => {
+      document.getElementById('installContainer').style.display = 'none';
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(registration => {
+          registration.onupdatefound = () => {
+            const installingWorker = registration.installing;
+            installingWorker.onstatechange = () => {
+              if (installingWorker.state === 'installed') {
+                if (navigator.serviceWorker.controller) {
+                  document.getElementById('refreshPrompt').style.display = 'block';
+                }
+              }
+            };
+          };
+        })
+        .catch(error => {
+          console.error('❌ Service worker registration failed:', error);
+        });
+    }
+  </script>
+</body>
+</html>
