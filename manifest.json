@@ -1,19 +1,20 @@
 {
-  "name": "RDHS Trincomalee Stats",
-  "short_name": "RDHS Stats",
-  "start_url": "/rdhs-stats-pwa/",
-  "scope": "/rdhs-stats-pwa/",
+  "name": "OutbreakWatch: Community Health Early Warning",
+  "short_name": "OutbreakWatch",
+  "description": "A low-resource PWA for community-level symptom reporting and outbreak detection.",
+  "start_url": "/OutbreakWatch/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#004080",
   "theme_color": "#004080",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "/rdhs-stats-pwa/images/icon-192.png",
+      "src": "images/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/rdhs-stats-pwa/images/icon-512-from-building.png",
+      "src": "images/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
