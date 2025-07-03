@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - OutbreakWatch</title>
+  <meta name="theme-color" content="#00bfff" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #e6f7ff, #ffffff);
+      color: #003366;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #00bfff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.2rem;
+      max-width: 1200px;
+      margin: auto;
+      color: #ffffff;
+      flex-wrap: wrap;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    .main-content {
+      padding: 6rem 2rem 3rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #007acc;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #005a99;
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #003366;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #003366;
+      margin-top: 3rem;
+      padding: 1rem 2vw;
+      background-color: #e6f7ff;
+      border-top: 1px solid #99ddff;
+    }
+
+    @media (max-width: 600px) {
+      .main-content {
+        padding: 5rem 1.2rem 2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">OutbreakWatch</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="report.html">Report Symptoms</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="analytics.html">Data Dashboard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <h1>About OutbreakWatch</h1>
+    <p>
+      <strong>OutbreakWatch</strong> is a community-powered early warning system designed to help identify and stop infectious disease outbreaks at the earliest possible stage. Built with low-resource communities in mind, it leverages simple yet effective tools like mobile-friendly apps, Google Forms, and open data visualization to make public health surveillance accessible to all.
+    </p>
+
+    <h2>Why This Project?</h2>
+    <p>
+      Many public health systems in resource-limited settings face challenges in quickly detecting outbreaks. By empowering health workers and the community to report symptoms through a smartphone-friendly interface, we aim to fill critical gaps in early warning and response.
+    </p>
+
+    <h2>How It Works</h2>
+    <p>
+      1. Community members or staff submit symptom reports via a simple Google Form.<br>
+      2. Data is collected securely and stored in a connected Google Sheet.<br>
+      3. The system monitors trends and displays them in real-time via charts and tables.<br>
+      4. When suspicious patterns are detected, alert messages are triggered on the platform.
+    </p>
+
+    <h2>Designed for Simplicity and Scalability</h2>
+    <p>
+      This system is designed to be:
+      <ul>
+        <li><strong>Low-cost:</strong> Uses free, open-source tools and cloud storage.</li>
+        <li><strong>Offline-friendly:</strong> Runs as a Progressive Web App (PWA).</li>
+        <li><strong>Community-focused:</strong> Built for use by health staff and volunteers.</li>
+        <li><strong>Adaptable:</strong> Easily deployable across regions or institutions.</li>
+      </ul>
+    </p>
+
+    <h2>Our Vision</h2>
+    <p>
+      We believe every community deserves access to timely outbreak alerts, regardless of technical or financial barriers. OutbreakWatch is a step toward closing the gap — using simple technology to empower frontline health workers and protect lives.
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2025 OutbreakWatch. Built for community resilience in public health.</p>
+  </footer>
+</body>
+</html>
