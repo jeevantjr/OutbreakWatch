@@ -169,6 +169,7 @@
             <th>Fever</th>
             <th>Rash</th>
             <th>Alert</th>
+            <th>Alert Score</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -180,7 +181,7 @@
     <p>© 2025 OutbreakWatch. Powered by Community Health Intelligence.</p>
   </footer>
 
-  <!-- PapaParse Script -->
+  <!-- PapaParse Logic -->
   <script>
     const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pub?gid=917947109&single=true&output=csv";
 
@@ -192,11 +193,14 @@
         const tableBody = document.querySelector("#alertTable tbody");
 
         data.forEach(row => {
-          if (!row["GN Division"]) return;
+          const gn = row["GN Division"]?.trim();
+          const fever = row["Fever"] || "0";
+          const rash = row["Rash"] || "0";
+          const alert = row["Alert message"]?.trim() || "";
+          const score = row["Alert Score"] || "";
 
-          const fever = parseInt(row["Fever"]);
-          const rash = parseInt(row["Rash"]);
-          const alert = row["Alert"] || "";
+          if (!gn) return;
+
           let rowClass = "safe";
           let icon = "🟢";
 
@@ -212,10 +216,11 @@
           tr.className = rowClass;
 
           tr.innerHTML = `
-            <td>${row["GN Division"]}</td>
-            <td>${fever || 0}</td>
-            <td>${rash || 0}</td>
+            <td>${gn}</td>
+            <td>${fever}</td>
+            <td>${rash}</td>
             <td class="icon">${icon} ${alert}</td>
+            <td>${score}</td>
           `;
           tableBody.appendChild(tr);
         });
