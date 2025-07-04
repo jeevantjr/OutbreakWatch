@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OutbreakWatch - Alerts</title>
-  <link rel="apple-touch-icon" href="images/aaa.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Outbreak Alerts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <style>
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: #f0f9ff;
+      margin: 0;
+      padding: 0;
       color: #003366;
     }
 
@@ -21,14 +21,14 @@
       top: 0;
       left: 0;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
     .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.8rem 1rem;
+      padding: 0.8rem 1.2rem;
       max-width: 1200px;
       margin: auto;
       color: #ffffff;
@@ -57,52 +57,56 @@
       color: #ffcc00;
     }
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background-color: #007acc;
-        margin-top: 0.5rem;
-        padding: 0.5rem 1rem;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-        color: #ffffff;
-      }
-    }
-
     main {
       padding: 6rem 1rem 2rem;
-      max-width: 1200px;
+      max-width: 960px;
       margin: auto;
     }
 
     h2 {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
       color: #004080;
+      margin-bottom: 1rem;
     }
 
-    iframe {
-      width: 100%;
-      height: 750px;
-      border: none;
+    .table-container {
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
+      overflow-x: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+
+    tr.safe {
+      background-color: #e8f5e9;
+    }
+
+    tr.warning {
+      background-color: #fff8e1;
+    }
+
+    tr.danger {
+      background-color: #ffebee;
+    }
+
+    .icon {
+      font-size: 1.2rem;
     }
 
     footer {
@@ -112,11 +116,34 @@
       padding: 1rem;
       background-color: #e0f7fa;
       border-top: 1px solid #b3e5fc;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: #007acc;
+        padding: 0.5rem 1rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
     }
   </style>
 </head>
-
 <body>
+
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">OutbreakWatch</div>
@@ -133,20 +160,72 @@
   </nav>
 
   <main>
-    <h2>⚠️ Live Outbreak Summary</h2>
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pubhtml?gid=917947109&single=true&widget=true&headers=false">
-    </iframe>
+    <h2>🚨 Live Outbreak Summary</h2>
+    <div class="table-container">
+      <table id="alertTable">
+        <thead>
+          <tr>
+            <th>GN Division</th>
+            <th>Fever</th>
+            <th>Rash</th>
+            <th>Alert</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </main>
 
   <footer>
     <p>© 2025 OutbreakWatch. Powered by Community Health Intelligence.</p>
   </footer>
 
+  <!-- PapaParse Script -->
   <script>
+    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pub?gid=917947109&single=true&output=csv";
+
+    Papa.parse(csvUrl, {
+      download: true,
+      header: true,
+      complete: function(results) {
+        const data = results.data;
+        const tableBody = document.querySelector("#alertTable tbody");
+
+        data.forEach(row => {
+          if (!row["GN Division"]) return;
+
+          const fever = parseInt(row["Fever"]);
+          const rash = parseInt(row["Rash"]);
+          const alert = row["Alert"] || "";
+          let rowClass = "safe";
+          let icon = "🟢";
+
+          if (alert.includes("Possible")) {
+            rowClass = "danger";
+            icon = "🔴";
+          } else if (alert.includes("Warning")) {
+            rowClass = "warning";
+            icon = "🟠";
+          }
+
+          const tr = document.createElement("tr");
+          tr.className = rowClass;
+
+          tr.innerHTML = `
+            <td>${row["GN Division"]}</td>
+            <td>${fever || 0}</td>
+            <td>${rash || 0}</td>
+            <td class="icon">${icon} ${alert}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      }
+    });
+
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("show");
     }
   </script>
+
 </body>
 </html>
