@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OutbreakWatch – Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #e6f7ff;
+      color: #003366;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: #007acc;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.2rem;
+      max-width: 1200px;
+      margin: auto;
+      color: #ffffff;
+      flex-wrap: wrap;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 6rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #004080;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #003366;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #003366;
+      padding: 1rem;
+      background-color: #e0f7fa;
+      border-top: 1px solid #b3e5fc;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: #007acc;
+        padding: 0.5rem 1rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">OutbreakWatch</div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="report.html">Report Symptoms</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="analytics.html">Data Dashboard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container">
+    <h2>📬 Contact & Project Team</h2>
+
+    <p><strong>OutbreakWatch</strong> is a low-resource, mobile-friendly web application designed to help communities detect outbreaks early through self-reported symptoms. It supports real-time visualization and analysis of public health trends at the local level.</p>
+
+    <p>This project was submitted for the <strong>HeroX Viral Vigilance: Next-Gen Outbreak Response</strong> Challenge.</p>
+
+    <p>
+      <strong>Project Lead:</strong><br>
+      Dr. Jeevaraaj Thangarasa<br>
+      Health & Medical Officer | Biomedical Informatics (MSc)<br>
+      Email: <a href="mailto:trincomoinfo@gmail.com">trincomoinfo@gmail.com</a>
+    </p>
+
+    <p>
+      <strong>Challenge Page:</strong><br>
+      <a href="https://www.herox.com/ViralVigilance" target="_blank">Visit HeroX Challenge →</a>
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 OutbreakWatch | Powered by Community Health Innovation
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
