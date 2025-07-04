@@ -92,15 +92,15 @@
     h2 {
       text-align: center;
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       color: #004080;
     }
 
     iframe {
       width: 100%;
-      height: 700px;
       border: none;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
     }
 
@@ -132,9 +132,20 @@
   </nav>
 
   <main>
-    <h2>Live Outbreak Alerts</h2>
+    <h2>📊 Symptom Reports by Location</h2>
+    <!-- Embedded Chart (from Google Sheets) -->
+    <iframe 
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pubchart?oid=938342557&amp;format=interactive" 
+      width="100%" 
+      height="450">
+    </iframe>
 
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pubhtml?widget=true&amp;headers=false"></iframe>
+    <h2>⚠️ Live Outbreak Summary</h2>
+    <!-- Embedded Summary Table -->
+    <iframe 
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pubhtml?gid=917947109&amp;single=true&amp;widget=true&amp;headers=false" 
+      height="750">
+    </iframe>
   </main>
 
   <footer>
@@ -143,8 +154,7 @@
 
   <script>
     function toggleMenu() {
-      var menu = document.getElementById("navLinks");
-      menu.classList.toggle("show");
+      document.getElementById("navLinks").classList.toggle("show");
     }
   </script>
 </body>
