@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: #e6f7ff;
+      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
       color: #003366;
     }
 
@@ -58,27 +58,35 @@
 
     .container {
       max-width: 960px;
-      margin: 6rem auto;
+      margin: 6rem auto 3rem;
       padding: 2rem;
       background: #ffffff;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
       text-align: center;
       color: #004080;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
     p {
       font-size: 1.1rem;
       line-height: 1.7;
       color: #003366;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
-    .footer {
+    .highlight {
+      background: #d9faff;
+      padding: 1rem;
+      border-left: 6px solid #007acc;
+      border-radius: 8px;
+      font-size: 1.05rem;
+    }
+
+    footer {
       text-align: center;
       font-size: 0.95rem;
       color: #003366;
@@ -111,7 +119,6 @@
 </head>
 
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">OutbreakWatch</div>
@@ -127,31 +134,35 @@
     </div>
   </nav>
 
-  <!-- Content -->
   <div class="container">
-    <h2>📬 Contact & Project Team</h2>
+    <h2>📬 Meet the Creator</h2>
 
-    <p><strong>OutbreakWatch</strong> is a low-resource, mobile-friendly web application designed to help communities detect outbreaks early through self-reported symptoms. It supports real-time visualization and analysis of public health trends at the local level.</p>
+    <p><strong>Dr. Jeevaraaj Thangarasa</strong><br>
+    MBBS, MCGP | MSc in Biomedical Informatics<br>
+   
+    <strong>Email:</strong> <a href="mailto:tjeevaraj78@gmail.com">trincomoinfo@gmail.com</a></p>
 
-    <p>This project was submitted for the <strong>HeroX Viral Vigilance: Next-Gen Outbreak Response</strong> Challenge.</p>
+    <div class="highlight">
+      <p><strong>OutbreakWatch</strong> is a lightweight, mobile-first progressive web app designed specifically for low-resource environments like <strong>rural Sri Lanka and Selangor communities</strong>.</p>
 
-    <p>
-      <strong>Project Lead:</strong><br>
-      Dr. Jeevaraaj Thangarasa<br>
-      Health & Medical Officer | Biomedical Informatics (MSc)<br>
-      Email: <a href="mailto:trincomoinfo@gmail.com">trincomoinfo@gmail.com</a>
-    </p>
+      <p>Built with ❤️ for **zero investment** and **zero maintenance**, it empowers frontline health workers and communities to report symptoms and monitor local outbreak trends in real time—even offline.</p>
 
-    <p>
-      <strong>Challenge Page:</strong><br>
-      <a href="https://www.herox.com/ViralVigilance" target="_blank">Visit HeroX Challenge →</a>
-    </p>
+      <p>This version is a <strong>community-driven prototype</strong> developed for the <a href="https://www.herox.com/ViralVigilance" target="_blank">HeroX Viral Vigilance Challenge</a>. It is freely adaptable and scalable for broader use in underserved regions.</p>
+
+      <p>✅ Offline-capable<br>
+         ✅ Google-integrated (Forms + Sheets)<br>
+         ✅ Visual dashboards and alerts<br>
+         ✅ No server required</p>
+    </div>
+
+    <p>We welcome partnerships or collaborators interested in enhancing this tool for local or global public health resilience.</p>
+
+    <p><strong>Challenge Link:</strong> <a href="https://www.herox.com/ViralVigilance" target="_blank">HeroX Viral Vigilance: Next-Gen Outbreak Response</a></p>
   </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    © 2025 OutbreakWatch | Powered by Community Health Innovation
-  </div>
+  <footer>
+    © 2025 OutbreakWatch | Community Health Innovation | Built with purpose, not profit.
+  </footer>
 
   <script>
     function toggleMenu() {
@@ -160,3 +171,4 @@
   </script>
 </body>
 </html>
+
