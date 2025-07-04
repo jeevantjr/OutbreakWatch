@@ -1,18 +1,24 @@
+
 const CACHE_NAME = 'outbreakwatch-v1';
+
 const urlsToCache = [
+  '/OutbreakWatch/',
   '/OutbreakWatch/index.html',
   '/OutbreakWatch/manifest.json',
   '/OutbreakWatch/styles.css',
   '/OutbreakWatch/app.js',
-  '/OutbreakWatch/images/icon-192.png',
-  '/OutbreakWatch/images/icon-512.png'
-  // Add more assets as needed
+  '/OutbreakWatch/images/aaa.png',
+  // Include any additional offline pages you want:
+  '/OutbreakWatch/about.html',
+  '/OutbreakWatch/report.html',
+  '/OutbreakWatch/alerts.html',
+  '/OutbreakWatch/analytics.html',
+  '/OutbreakWatch/contact.html'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
   self.skipWaiting(); // Activate worker immediately
 });
@@ -25,19 +31,21 @@ self.addEventListener('activate', event => {
       )
     )
   );
-  self.clients.claim(); // Take control of all clients
+  self.clients.claim(); // Take control of all clients immediately
 });
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+
   event.respondWith(
     fetch(event.request)
       .then(response => {
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, responseClone);
+        });
         return response;
       })
       .catch(() => caches.match(event.request))
   );
 });
-
