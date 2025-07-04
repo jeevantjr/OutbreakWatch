@@ -3,34 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OutbreakWatch - Alerts Summary</title>
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#007acc" />
+  <title>OutbreakWatch - Alerts</title>
   <link rel="apple-touch-icon" href="images/aaa.png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      background: #f0f9ff;
       color: #003366;
     }
 
     .navbar {
       width: 100%;
-      background-color: rgba(0, 102, 153, 0.95);
+      background-color: #007acc;
       position: fixed;
       top: 0;
       left: 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.8rem 1.2rem;
+      padding: 0.8rem 1rem;
       max-width: 1200px;
       margin: auto;
       color: #ffffff;
@@ -70,10 +68,9 @@
         display: none;
         width: 100%;
         flex-direction: column;
-        background-color: rgba(0, 102, 153, 0.95);
+        background-color: #007acc;
         margin-top: 0.5rem;
         padding: 0.5rem 1rem;
-        border-radius: 0 0 10px 10px;
       }
 
       .nav-links.show {
@@ -86,41 +83,39 @@
       }
     }
 
-    .content {
-      padding: 7rem 1rem 3rem;
-      max-width: 1000px;
+    main {
+      padding: 6rem 1rem 2rem;
+      max-width: 1200px;
       margin: auto;
-      text-align: center;
     }
 
     h2 {
+      text-align: center;
       font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #00557f;
+      margin-bottom: 1.5rem;
+      color: #004080;
     }
 
     iframe {
       width: 100%;
-      max-width: 960px;
+      height: 700px;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
     }
 
     footer {
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: #003366;
       padding: 1rem;
-      background-color: #e6f7ff;
-      border-top: 1px solid #99ddff;
+      background-color: #e0f7fa;
+      border-top: 1px solid #b3e5fc;
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">OutbreakWatch</div>
@@ -136,29 +131,21 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h2>📊 Symptom Trends</h2>
-    <!-- Replace the src below with your published chart embed link -->
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pubchart?oid=12345678&format=interactive" width="960" height="480"></iframe>
+  <main>
+    <h2>Live Outbreak Alerts</h2>
 
-    <h2>📋 Live Symptom Reports</h2>
-    <!-- Replace below with the actual sheet or use as-is for AlertsSummary table -->
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pubhtml?gid=0&single=true&widget=true&headers=false" width="960" height="600"></iframe>
-  </div>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQCyDH0ByMx_728zKrtJ5OI5ZsKQKjplFJNPWE78eUT2vD3WCHwFn3rFPbYYVlbiEn95Brxsdz_v9zy/pubhtml?widget=true&amp;headers=false"></iframe>
+  </main>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 OutbreakWatch – Community Health Early Warning</p>
+    <p>© 2025 OutbreakWatch. Powered by Community Health Intelligence.</p>
   </footer>
 
-  <!-- JS -->
   <script>
     function toggleMenu() {
-      const menu = document.getElementById("navLinks");
+      var menu = document.getElementById("navLinks");
       menu.classList.toggle("show");
     }
   </script>
 </body>
 </html>
-
