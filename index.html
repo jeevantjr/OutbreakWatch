@@ -4,15 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OutbreakWatch</title>
-  <link rel="manifest" href="manifest.json" />
+
+  <!-- Meta Tags for SEO & App Info -->
+  <meta name="description" content="OutbreakWatch: mobile-first early warning for community health outbreaks in low-resource settings.">
   <meta name="theme-color" content="#007acc" />
+
+  <!-- Favicon and Icons -->
+  <link rel="icon" href="images/aaa.png" type="image/png" />
   <link rel="apple-touch-icon" href="images/aaa.png" />
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Style -->
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #ccefff, #ffffff);
+      background-attachment: fixed;
       color: #003355;
     }
 
@@ -171,7 +184,7 @@
 
     <div class="info-card">
       <p>
-        Welcome to <strong>OutbreakWatch</strong> — a community-based, mobile-first platform for tracking early signs of outbreaks based on local symptom reports. This system empowers frontline health workers and community members to detect patterns, visualize data, and respond before it's too late.
+        Welcome to <strong>OutbreakWatch</strong> — a community-based, mobile-first platform for tracking early signs of outbreaks based on local symptom reports. This system empowers frontline health workers and community members to detect patterns, visualize data, and respond before it's too late. Designed for low-resource settings worldwide.
       </p>
     </div>
 
@@ -214,7 +227,7 @@
     <p>© 2025 OutbreakWatch. Built for community resilience in public health.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JavaScript -->
   <script>
     function toggleMenu() {
       var menu = document.getElementById("navLinks");
@@ -250,7 +263,7 @@
       button.addEventListener('click', () => {
         container.style.display = 'none';
         deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
+        deferredPrompt.userChoice.then(() => {
           deferredPrompt = null;
         });
       });
@@ -266,10 +279,8 @@
           registration.onupdatefound = () => {
             const installingWorker = registration.installing;
             installingWorker.onstatechange = () => {
-              if (installingWorker.state === 'installed') {
-                if (navigator.serviceWorker.controller) {
-                  document.getElementById('refreshPrompt').style.display = 'block';
-                }
+              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                document.getElementById('refreshPrompt').style.display = 'block';
               }
             };
           };
