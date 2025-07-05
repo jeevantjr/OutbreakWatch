@@ -60,8 +60,13 @@ In many parts of the world, especially rural or under-resourced settings, digita
 
 ---
 
-## 🚀 Installation (for testing or customization)
+## 🙌 Developed By
+Dr. Jeevaraaj Thangarasa
+MBBS, MCGP | MSc in Biomedical Informatics
+Public Health Officer & Medical Informatics Researcher
+📍 Passionate about building zero-cost digital health tools for underserved communities.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/OutbreakWatch.git
+## 🌐 HeroX Challenge Submission
+This project was created as an official submission to the Viral Vigilance: Next-Gen Outbreak Response innovation challenge.
+
+OutbreakWatch is our answer to the urgent need for low-resource, scalable, and field-ready technologies to detect and mitigate disease outbreaks in vulnerable populations.
