@@ -61,12 +61,10 @@ In many parts of the world, especially rural or under-resourced settings, digita
 ---
 
 ## 🙌 Developed By
-Dr. Jeevaraaj Thangarasa
-MBBS, MCGP | MSc in Biomedical Informatics
-Public Health Officer & Medical Informatics Researcher
-📍 Passionate about building zero-cost digital health tools for underserved communities.
+- Dr. Jeevaraaj Thangarasa
+- MBBS, MCGP | MSc in Biomedical Informatics
+- 📍 Passionate about building zero-cost digital health tools for underserved communities.
 
 ## 🌐 HeroX Challenge Submission
-This project was created as an official submission to the Viral Vigilance: Next-Gen Outbreak Response innovation challenge.
-
-OutbreakWatch is our answer to the urgent need for low-resource, scalable, and field-ready technologies to detect and mitigate disease outbreaks in vulnerable populations.
+- This project was created as an official submission to the Viral Vigilance: Next-Gen Outbreak Response innovation challenge.
+- OutbreakWatch is our answer to the urgent need for low-resource, scalable, and field-ready technologies to detect and mitigate disease outbreaks in vulnerable populations.
